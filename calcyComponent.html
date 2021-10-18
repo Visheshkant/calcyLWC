@@ -1,0 +1,87 @@
+<template>
+    <lightning-card title="LWC Calculator" icon-name="standard:calculated_insights">
+        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+            <lightning-layout>
+                <lightning-layout-item padding="around-small" size="8">
+                    <div class="slds-box slds-p-around_small">
+                        <template if:false={isFinal}>
+                            <lightning-formatted-text value={resultValue}></lightning-formatted-text>
+                        </template>
+                        <template if:true={isFinal}>
+                            <lightning-formatted-number value={finalResultValue}></lightning-formatted-number>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-card title="History">
+                    <lightning-layout-item padding="around-large" size="4">
+                        <div class="slds-m-around_medium">
+                            <template for:each={historyArray} for:item="hist" for:index="idx">
+                                <lightning-layout-item key={hist.key}>
+                                    <ul>
+                                        <li> {hist}</li>
+                                    </ul>
+                                </lightning-layout-item>
+                            </template>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-card>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2"> 
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="1" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="2" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="3" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="-" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="4" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="5" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="6" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="+" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="7" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="8" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="9" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="*" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="%" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="0" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="brand-outline" label="/" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                    <lightning-button class=" slds-p-around_medium slds-text-align_center" variant="Brand" label="=" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>
